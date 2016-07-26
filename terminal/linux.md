@@ -163,7 +163,7 @@ There are plenty of frameworks that have been created to help setup zsh configur
   ```
   setopt EXTENDED_GLOB 
   for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}" 
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}" 
   done
   ```
 
@@ -240,13 +240,13 @@ There are plenty of frameworks that have been created to help setup zsh configur
 
 **Note:** If the above mentioned command does not work, follow the following steps to change the current prompt theme
 
-Go to a terminal windoy and type the following command:
+Go to your terminal window and type the following command:
 
 ```
 nano ~/.zpreztorc
 ```
 
-Scroll through the file until you find a similar code to the following snippet then replace with the desired theme name as instructed below.
+Scroll through the file until you find a similar code to the following snippet then replace with the desired theme. The recommended theme: `giddie` or `steeef`
 
 ```
 #
@@ -255,7 +255,7 @@ Scroll through the file until you find a similar code to the following snippet t
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals. 
-  zstyle ':prezto:module:prompt' theme '<name-of-theme'>
+  zstyle ':prezto:module:prompt' theme 'steeef'>
 ```
 
 ### Node JS With NVM
@@ -328,6 +328,7 @@ Scroll through the file until you find a similar code to the following snippet t
   ```
 
   To display currently activated version:
+
   ```
   $ nvm current
   ```
