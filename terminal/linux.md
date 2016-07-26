@@ -72,7 +72,7 @@ $ git config --global user.name "you name"
 $ git config --global user.email "your@email.com"
 ```
 
-#### Atom
+### Atom
 
 At the beginning of the course \(week 1 - 6\) we'll be using a text editor to write code. There are many editors out there we can use. [Sublime](http://www.sublimetext.com/) is one, [TextMate](https://macromates.com/) is another, but our editor of choice for this course is [Atom](https://atom.io). It is brought to us by the good people of GitHub and comes with over 3000 extension packages - all open sourced.
 
@@ -92,7 +92,7 @@ $ git config --global core.editor "atom --wait"
 
 ### **Zsh**
 
-**[Zsh](http://zsh.sourceforge.net)** is a shell designed for interactive use, although it is also a powerful scripting language. Many of the useful features of _[bash](https://www.gnu.org/software/bash/)_, **_ksh_**, and **_tcsh_** were incorporated into zsh; many original features were added.
+[**Zsh**](http://zsh.sourceforge.net) is a shell designed for interactive use, although it is also a powerful scripting language. Many of the useful features of [_bash_](https://www.gnu.org/software/bash/), _**ksh**_, and _**tcsh**_ were incorporated into zsh; many original features were added.
 
 **Steps to install Zsh**
 
@@ -162,9 +162,9 @@ There are plenty of frameworks that have been created to help setup zsh configur
 
   ```
   setopt EXTENDED_GLOB 
-    for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-        ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}" 
-    done
+  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}" 
+  done
   ```
 
   If you do the steps above, you will get the following files on your system:
@@ -185,7 +185,7 @@ There are plenty of frameworks that have been created to help setup zsh configur
   ```
   # Source Prezto.
   if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then 
-    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
   fi
   ```
 
@@ -199,13 +199,13 @@ There are plenty of frameworks that have been created to help setup zsh configur
   # Set the Prezto modules to load (browse modules). 
   # The order matters. 
   zstyle ':prezto:load' pmodule \
-    'directory' \ 
-    'utility' \ 
-    'completion' \ 
-    'git' \ 
-    'prompt' \ 
-    'syntax-highlighting' \ 
-    'history-substring-search' \
+  'directory' \ 
+  'utility' \ 
+  'completion' \ 
+  'git' \ 
+  'prompt' \ 
+  'syntax-highlighting' \ 
+  'history-substring-search' \
   ```
 
 5. Set Zsh as your default shell:
@@ -222,7 +222,7 @@ There are plenty of frameworks that have been created to help setup zsh configur
 1. To list all available prompt themes:
 
   ```
-  prompt -l
+  $ prompt -l
   ```
 
 2. To preview a theme:
@@ -233,8 +233,127 @@ There are plenty of frameworks that have been created to help setup zsh configur
 
 3. To change to another prompt theme
 
-4. ```
+  ```
   $ prompt <name-of-the-theme>
+  ```
+
+
+**Note:** If the above mentioned command does not work, follow the following steps to change the current prompt theme
+
+Go to a terminal windoy and type the following command:
+
+```
+nano ~/.zpreztorc
+```
+
+Scroll through the file until you find a similar code to the following snippet then replace with the desired theme name as instructed below.
+
+```
+#
+# Prompt
+#
+# Set the prompt theme to load.
+# Setting it to 'random' loads a random theme.
+# Auto set to 'off' on dumb terminals. 
+  zstyle ':prezto:module:prompt' theme '<name-of-theme'>
+```
+
+### Node JS With NVM
+
+**Steps to Install  NVM \(Node Version Manager**
+
+1. Before we start let's update our system packages
+
+  ```
+  $ sudo apt-get update 
+  ```
+
+  Even though the **build-essential** package should already be installed, we are still going to include it in our command for installation:
+
+  ```
+  $ sudo apt-get install build-essential libssl-dev
+  ```
+
+2. Install NVM \(Node Version Manager\)
+
+  Use the following curl command to start the installation script:
+
+  ```
+  $ curl https://raw.githubusercontent.com/creationix/nvm/v0.31.3/install.sh | bash
+  ```
+
+  At the time of publication, **NVM v0.31.3** was the most recent version available. You should check the [GitHub project page for the latest release of NVM](https://github.com/creationix/nvm/releases), and adjust the above command to include the newest version.
+
+  **After running the above command, you may receive output similar to the following:**
+
+  ```
+  $ Close and reopen your terminal to start using nvm
+  ```
+
+3. Verify the Installation
+
+  ```
+  $ nvm --version
+  ```
+
+  Which in this case would yield a result of:
+
+  ```
+  0.31.3
+  ```
+
+  Another very useful command to get you started on node.js management is:
+
+  ```
+  nvm help
+  ```
+
+
+**Steps to install nodejs using NVM**
+
+1. Check Available Node.js Versions
+
+  ```
+  $ nvm ls-remote
+  ```
+
+  I is also possible to install the latest **stable** or **unstable** versions, as shown in the next step.
+
+2. Install a Node.js Version
+
+  To download, compile, and install the latest version in the v6.3.x release of node.js:
+
+  ```
+  $ nvm install v6.3.1
+  ```
+
+  To display currently activated version:
+  ```
+  $ nvm current
+  ```
+
+  Which gives me the output:
+
+  ```
+  v6.3.1 #this is the version of node you currently using
+  ```
+
+  To show all the installed node versions via nvm use the following command:
+
+  ```
+  $ nvm ls
+  ```
+
+  If you want to change to another version of node use the following command:
+
+  ```
+  nvm use <another-version-of-node>
+  ```
+
+  The above command will return:
+
+  ```
+  Now using node 
   ```
 
 
